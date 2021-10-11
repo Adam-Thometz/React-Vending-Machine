@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
+import Navbar from './Navbar';
+import VendingMachine from './VendingMachine';
+import GreenTea from './food-components/GreenTea';
+import YogurtBerries from './food-components/YogurtBerries';
+import Salmon from './food-components/Salmon';
+import Kombucha from './food-components/Kombucha';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Navbar />
+        <Route exact path="/">
+          <VendingMachine />
+        </Route>
+        <Route exact path="/green-tea">
+          <GreenTea />
+        </Route>
+        <Route exact path="/yogurt">
+          <YogurtBerries />
+        </Route>
+        <Route exact path="/salmon">
+          <Salmon />
+        </Route>
+        <Route exact path="/kombucha">
+          <Kombucha />
+        </Route>
+      </BrowserRouter>
     </div>
   );
 }
